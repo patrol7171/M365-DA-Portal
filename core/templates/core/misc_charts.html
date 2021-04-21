@@ -1,0 +1,125 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+	<div class="page-header">
+	  <h3 class="page-title"> Analytics Setup Request Form</h3>
+	</div>
+	<div class="row">
+	  <div class="col-12 grid-margin stretch-card">
+		<div class="card">
+		  <div class="card-body">
+			<p class="card-description"> Please complete the form below. </p>			
+			<form class="form-sample">
+			  <div class="row">
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">Full Name:</label>
+					<div class="col-sm-9">
+					  <input type="text" class="form-control" />
+					</div>
+				  </div>
+				</div>
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">Job Title:</label>
+					<div class="col-sm-9">
+					  <input type="text" class="form-control" />
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">Work Location:</label>
+					<div class="col-sm-9">
+					  <select class="form-control">
+						<option>Los Angeles</option>
+						<option>New York</option>
+						<option>Boston</option>
+					  </select>
+					</div>
+				  </div>
+				</div>
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">Department:</label>
+					<div class="col-sm-9">
+					  <select class="form-control">
+						<option>Dept1</option>
+						<option>Dept2</option>
+						<option>Dept3</option>
+					  </select>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">Initial Meeting Date:</label>
+					<div class="col-sm-9">
+					  <input class="form-control" placeholder="dd/mm/yyyy" />
+					</div>
+				  </div>
+				</div>
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">Best Contact Method:</label>
+					<div class="col-sm-4">
+					  <div class="form-check">
+						<label class="form-check-label">
+						  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked> Chat </label>
+					  </div>
+					</div>
+					<div class="col-sm-5">
+					  <div class="form-check">
+						<label class="form-check-label">
+						  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Email </label>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">Point of Contact(POC):</label>
+					<div class="col-sm-9">
+					  <input type="text" class="form-control" />
+					</div>
+				  </div>
+				</div>
+				<div class="col-md-6">
+				  <div class="form-group row">
+					<label class="col-sm-3 col-form-label">POC Email Address:</label>
+					<div class="col-sm-9">
+					  <input type="text" class="form-control" />
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-md-9">
+				  <div class="form-group row">
+				    <label for="exampleTextarea1" class="col-sm-3 col-form-label">Additional Info:</label>
+					<div class="col-sm-9">
+						<textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+					</div>	
+				  </div>
+				</div>
+				<div class="col-md-3">				  
+					<button type="submit" class="btn btn-gradient-primary mt-4 float-right">Submit</button>
+				</div>
+			  </div>			  
+			</form>			
+		  </div>
+		</div>
+	  </div>
+	</div>  
+{% endblock %}
+ 
+{% block fileuploadjs-script %}
+    <script src="{% static 'assets/js/file-upload.js' %}"></script>	
+{% endblock %}

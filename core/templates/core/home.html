@@ -1,0 +1,33 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+	<div class="row">
+	  <div class="col-12 stretch-card">
+		<div class="card">
+		  <div class="card-body">
+			<h2 class="card-title font-weight-bold">Welcome to the DevPatrol Data Analytics Portal</h2>
+			<div class="d-flex">
+			  <div class="d-flex align-items-center text-muted font-weight-light mr-3">
+				<a class="btn btn-block btn-lg btn-gradient-primary mt-1" href="{% url 'signin' %}">Login Here</a>
+			  </div>			
+			  <div class="d-flex align-items-center text-muted font-weight-light">
+				<span> You are not logged in...please sign in to get started.</span>
+			  </div>
+			</div>
+			<div class="row mt-3">
+			  <div class="col-4 px-1">
+				<img src="{% static 'assets/images/dashboard/img_5.jpg' %}" class="mw-100 w-100 rounded" alt="image" />
+			  </div>
+			  <div class="col-4 px-1">
+				<img src="{% static 'assets/images/dashboard/img_6.jpg' %}" class="mw-100 w-100 rounded" alt="image" />
+			  </div>			  
+			  <div class="col-4 px-1">
+				<img src="{% static 'assets/images/dashboard/img_7.jpg' %}" class="mw-100 w-100 rounded" alt="image" />
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+{% endblock %}

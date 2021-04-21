@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block plotly-cdn %}
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div class="page-header">
+	  <h3 class="page-title"> {{ groupName }} Metrics</h3>
+	</div>						
+	<div class="row">
+	  <div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+		  <div class="card-body2 text-center">
+			<!-- <h4 class="card-title text-center"></h4> -->
+			<div >{{ plot1|safe }}</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+		  <div class="card-body2 text-center">
+			<!-- <h4 class="card-title text-center"></h4> -->
+			<div >{{ plot2|safe }}</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+		  <div class="card-body2 text-center">
+			<!-- <h4 class="card-title text-center"></h4> -->
+			<div >{{ plot3|safe }}</div>
+		  </div>
+		</div>
+	  </div>
+	</div>	
+{% endblock %}

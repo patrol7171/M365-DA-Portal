@@ -1,0 +1,167 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+	{% if groupName != 'Misc Group' %}
+	<div class="page-header">
+	  <h3 class="page-title">
+		<span class="text-dark mr-2">
+		  {{ user.firstName }}'s Dashboard
+		</span> 
+	  </h3>
+	  <nav aria-label="breadcrumb">
+		<ul class="breadcrumb">
+		  <li class="breadcrumb-item active" aria-current="page">
+			<span></span><small class="font-italic">Today is {{ currentDate }}</small>
+		  </li>
+		</ul>
+	  </nav>
+	</div>	
+	<p class='lead font-weight-bold {{ textStyle }}'>{{ groupName }} Top 3 Performance Metrics</p>
+	<div class="row">
+	  <div class="col-md-4 stretch-card grid-margin2">
+		<div class="card bg-gradient-dashboardcard1 card-img-holder text-white {{ borderStyle }}">
+		  <div class="card-body2">
+			<img src="{% static 'assets/images/dashboard/circle.svg' %}" class="card-img-absolute" alt="circle-image" />
+			<h4 class="font-weight-normal mb-3">{{ dashtitle1|safe }} <i class="mdi mdi-numeric-1-box mdi-24px float-right"></i>
+			</h4>
+			<h2 class="mb-3">{{ data1|safe }}</h2>
+			<!-- <h6 class="card-text">Increased by 60%</h6> -->
+		  </div>
+		</div>
+	  </div>
+	  <div class="col-md-4 stretch-card grid-margin2">
+		<div class="card bg-gradient-dashboardcard1 card-img-holder text-white {{ borderStyle }}">
+		  <div class="card-body2">
+			<img src="{% static 'assets/images/dashboard/circle.svg' %}" class="card-img-absolute" alt="circle-image" />
+			<h4 class="font-weight-normal mb-3">{{ dashtitle2|safe }} <i class="mdi mdi-numeric-2-box mdi-24px float-right"></i>
+			</h4>
+			<h2 class="mb-3">{{ data2|safe }}</h2>
+			<!-- <h6 class="card-text">Decreased by 10%</h6> -->
+		  </div>
+		</div>
+	  </div>
+	  <div class="col-md-4 stretch-card grid-margin2">
+		<div class="card bg-gradient-dashboardcard1 card-img-holder text-white {{ borderStyle }}">
+		  <div class="card-body2">
+			<img src="{% static 'assets/images/dashboard/circle.svg' %}" class="card-img-absolute" alt="circle-image" />
+			<h4 class="font-weight-normal mb-3">{{ dashtitle3|safe }} <i class="mdi mdi-numeric-3-box mdi-24px float-right"></i>
+			</h4>
+			<h2 class="mb-3">{{ data3|safe }}</h2>
+			<!-- <h6 class="card-text">Increased by 5%</h6> -->
+		  </div>
+		</div>
+	  </div>
+	</div>	
+	<div class="row">
+	  <div class="col-md-4 grid-margin2 stretch-card">
+		<div class="card {{ borderStyle }}">
+		  <div class="card-body2 text-center">
+			<div class="clearfix">
+			  <h4 class="card-title text-center">Performance Goal 1 Status</h4>
+			</div>
+			<div><canvas class="gauge-chart" id="gaugeChart1"></canvas></div>
+			<h6 class="card-text">{{ gauge1|safe }}%</h6>
+		  </div>
+		</div>
+	  </div>
+	  <div class="col-md-4 grid-margin2 stretch-card">
+		<div class="card {{ borderStyle }}">
+		  <div class="card-body2 text-center">
+			<h4 class="card-title text-center">Performance Goal 2 Status</h4>
+			<div><canvas class="gauge-chart" id="gaugeChart2"></canvas></div>
+			<h6 class="card-text">{{ gauge2|safe }}%</h6>
+		  </div>
+		</div>
+	  </div>
+	  <div class="col-md-4 grid-margin2 stretch-card">
+		<div class="card {{ borderStyle }}">
+		  <div class="card-body2 text-center">
+			<h4 class="card-title text-center">Performance Goal 3 Status</h4>
+			<div><canvas class="gauge-chart" id="gaugeChart3"></canvas></div>
+			<h6 class="card-text">{{ gauge3|safe }}%</h6>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	{% else %}
+	<div class="row mt-5">
+	  <div class="col-md-5 grid-margin stretch-card">
+		<div class="card">
+		  <div class="card-body">
+			<h3 class="font-weight-bold text-center py-2">Analytics Pages For You Are Pending...</h3>
+			<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley not only five centuries. </p>
+			<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley not only five centuries. </p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="col-md-7 grid-margin stretch-card">
+		<div class="card">
+		  <div class="card-body mt-4">
+			<canvas id='barChart' style="height:300px"></canvas>
+		  </div>
+		</div>
+	  </div>
+	</div>	
+	{% endif %}
+{% endblock %}
+{% block chartjs-script %}
+    <script src="{% static 'assets/js/chart.js' %}"></script>	
+{% endblock %}
+{% if groupName != 'Misc Group' %}
+	{% block gauge_script %}
+		var opts = {
+		  lines: 12,
+		  angle: 0,
+		  lineWidth: 0.4,
+		  pointer: {
+			length: 0.7,
+			strokeWidth: 0.045,
+			color: '#000000'
+		  },
+		  limitMax: 'false', 
+		  percentColors: [[0.0, "#a9d70b" ], [0.50, "#f9c802"], [1.0, "#ff0000"]], 
+		  strokeColor: '#E0E0E0',
+		  generateGradient: true,
+		  staticLabels: {
+		  font: "10px sans-serif", 
+		  labels: [0,20,40,60,80,100], 
+		  color: "#000000", 
+		  fractionDigits: 0 
+			},
+		  staticZones: [
+		   {strokeStyle: "#F03E3E", min: 0, max: 70}, // Red 
+		   {strokeStyle: "#FFDD00", min: 70, max: 85}, // Yellow
+		   {strokeStyle: "#30B32D", min: 85, max: 100}, // Green
+			],
+		  renderTicks: {
+			divisions: 5,
+			divWidth: 1.1,
+			divLength: 0.7,
+			divColor: "#333333",
+			subDivisions: 3,
+			subLength: 0.5,
+			subWidth: 0.6,
+			subColor: "#666666"
+		  },
+		};
+
+		var target1 = document.getElementById('gaugeChart1');
+		var gauge1 = new Gauge(target1).setOptions(opts);
+		gauge1.maxValue = 100;
+		gauge1.animationSpeed = 32;
+		gauge1.set({{ gauge1|safe }});
+
+		var target2 = document.getElementById('gaugeChart2');
+		var gauge2 = new Gauge(target2).setOptions(opts);
+		gauge2.maxValue = 100;
+		gauge2.animationSpeed = 32;
+		gauge2.set({{ gauge2|safe }});
+		
+		var target3 = document.getElementById('gaugeChart3');
+		var gauge3 = new Gauge(target3).setOptions(opts);
+		gauge3.maxValue = 100;
+		gauge3.animationSpeed = 32;
+		gauge3.set({{ gauge3|safe }});
+	{% endblock %}
+{% endif %}
