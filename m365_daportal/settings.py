@@ -33,8 +33,8 @@ REDIRECT_URI = os.environ['REDIRECT_URI']
 SP_USERNAME = os.environ['SP_USERNAME']
 SP_PASSWORD = os.environ['SP_PASSWORD']
 
-ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definitions
 INSTALLED_APPS = [
@@ -148,6 +148,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATICFILES_DIRS = (
+   ('m365_daportal', os.path.join(BASE_DIR, 'm365_daportal', 'static')),
+)
+
+STATICFILES_FINDERS = (
+  'django.contrib.staticfiles.finders.FileSystemFinder',
+  'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
 
 
 

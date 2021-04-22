@@ -15,10 +15,10 @@ import pytz
 
 
 #Plugged in fake dashboard data for now ...
-finance_dashboard = ['Accounts Receivable','Accounts Payable','Avg Debtor Days', '$9,857','$8,563','258', 69, 83, 75, 'finance-border', 'finance-text']
-manufacturing_dashboard = ['Back Order Rate','Perfect Order Rate','Units Per Transaction', '12.10%','94.5%','5.3', 65, 90, 85, 'manufacturing-border', 'manufacturing-text']
-retail_dashboard = ['Avg Purchase Value','Avg Transaction Value','Conversion Rate', '$67.55','$72.50','25%', 82, 91, 80, 'retail-border', 'retail-text']
-salesmarketing_dashboard = ['Sales Growth YTD','Site Bounce Rate', 'Sell-Through Rate', '32.7%', '22.3%','13.48%', 99, 93, 89, 'salesmarketing-border', 'salesmarketing-text']
+finance_dashboard = ['Gross Profit Margin (%)','Net Profit Margin (%)','Inventory Turnover Ratio', [5,50,100,[0,20,40,60,80,100]],[5,10,100,[0,20,40,60,80,100]],[2,5,10,[0,2,4,6,8,10]], 71, 14, 5.5, 'finance-border', 'finance-text']
+manufacturing_dashboard = ['Back Order Rate (%)','Perfect Order Rate (%)','Units Per Transaction', [5,50,100,[0,20,40,60,80,100]],[5,10,100,[0,20,40,60,80,100]],[2,5,10,[0,2,4,6,8,10]], 12.10, 94.5, 5.3, 'manufacturing-border', 'manufacturing-text']
+retail_dashboard = ['Avg Purchase Value (%)','Avg Transaction Value (%)','Conversion Rate (%)', [5,50,100,[0,20,40,60,80,100]],[5,50,100,[0,20,40,60,80,100]],[10,20,100,[0,20,40,60,80,100]], 67.55, 72.5, 25, 'retail-border', 'retail-text']
+salesmarketing_dashboard = ['Sales Growth YTD (%)','Site Bounce Rate (%)', 'Sell-Through Rate (%)', [5,15,100,[0,20,40,60,80,100]],[5,15,100,[0,20,40,60,80,100]],[5,10,100,[0,20,40,60,80,100]], 32.7, 22.3, 13.48, 'salesmarketing-border', 'salesmarketing-text']
 
 #Team charts...
 finance_charts = [fin_chart1, fin_chart2, fin_chart3, fin_chart4]
@@ -72,9 +72,9 @@ def dashboard(request):
             context['dashtitle1'] = dept_dashboard[0]
             context['dashtitle2'] = dept_dashboard[1]
             context['dashtitle3'] = dept_dashboard[2]
-            context['data1'] = dept_dashboard[3]
-            context['data2'] = dept_dashboard[4]
-            context['data3'] = dept_dashboard[5]
+            context['rangeset1'] = dept_dashboard[3]
+            context['rangeset2'] = dept_dashboard[4]
+            context['rangeset3'] = dept_dashboard[5]
             context['gauge1'] = dept_dashboard[6]
             context['gauge2'] = dept_dashboard[7]
             context['gauge3'] = dept_dashboard[8]

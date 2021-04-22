@@ -1,0 +1,64 @@
+	var target7 = document.getElementById('gaugeChart7');
+	var target8 = document.getElementById('gaugeChart8');
+	var target9 = document.getElementById('gaugeChart9');
+
+	var r7 = {{ rangeset7|safe }};
+	var r8 = {{ rangeset8|safe }};
+	var r9 = {{ rangeset9|safe }};
+	
+	var sZ7 = [
+	   {strokeStyle: "#F03E3E", min: 0, max: r7[0]}, // Red 
+	   {strokeStyle: "#FFDD00", min: r7[0], max: r7[1]}, // Yellow
+	   {strokeStyle: "#30B32D", min: r7[1], max: r7[2]}, // Green
+	];
+	var sZ8 = [
+	   {strokeStyle: "#F03E3E", min: 0, max: r8[0]}, // Red 
+	   {strokeStyle: "#FFDD00", min: r8[0], max: r8[1]}, // Yellow
+	   {strokeStyle: "#30B32D", min: r8[1], max: r8[2]}, // Green
+	];
+	var sZ9 = [
+	   {strokeStyle: "#F03E3E", min: 0, max: r9[0]}, // Red 
+	   {strokeStyle: "#FFDD00", min: r9[0], max: r9[1]}, // Yellow
+	   {strokeStyle: "#30B32D", min: r9[1], max: r9[2]}, // Green
+	];
+	
+	var sL7 = {
+		font: "10px sans-serif", 
+		labels: r7[3], 
+		color: "#000000", 
+		fractionDigits: 0 
+	};
+	var sL8 = {
+		font: "10px sans-serif", 
+		labels: r8[3], 
+		color: "#000000", 
+		fractionDigits: 0 
+	};
+	var sL9 = {
+		font: "10px sans-serif", 
+		labels: r9[3], 
+		color: "#000000", 
+		fractionDigits: 0 
+	};
+	
+	opts.staticZones = sZ7;
+	opts.staticLabels = sL7;
+	var gauge7 = new Gauge(target7).setOptions(opts);
+	gauge7.maxValue = r7[2];
+	gauge7.animationSpeed = 32;
+	gauge7.set({{ gauge7|safe }});
+
+	opts.staticZones = sZ8;
+	opts.staticLabels = sL8;
+	var gauge8 = new Gauge(target8).setOptions(opts);
+	gauge8.maxValue = r8[2];
+	gauge8.animationSpeed = 32;
+	gauge8.set({{ gauge8|safe }});
+	
+	opts.staticZones = sZ9;
+	opts.staticLabels = sL9;
+	var gauge9 = new Gauge(target9).setOptions(opts);
+	gauge9.maxValue = r9[2];
+	gauge9.animationSpeed = 32;
+	gauge9.set({{ gauge9|safe }});
+	

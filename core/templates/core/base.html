@@ -80,12 +80,12 @@
 			{% if groupName != 'Misc Group' %}		
 			  {% if groupName != 'Executive Management' %}
 				<li class="nav-item">
-				  <a class="nav-link" data-toggle="collapse" href="#team-pages" aria-expanded="false" aria-controls="team-pages">
+				  <a class="nav-link" data-toggle="collapse" href="#mygroup-pages" aria-expanded="false" aria-controls="mygroup-pages">
 					<span class="menu-title">My Team Analytics</span>
 					<i class="menu-arrow"></i>
 					<i class="mdi mdi-chart-bar menu-icon"></i>
 				  </a>
-				  <div class="collapse" id="team-pages">
+				  <div class="collapse" id="mygroup-pages">
 					<ul class="nav flex-column sub-menu">
 					{% if groupName == 'Finance Group' %}
 					  <li class="nav-item"><a class="nav-link" href="{% url 'finance' %}">Finance Metrics</a></li>				
@@ -101,12 +101,12 @@
 				</li>
 			   {% else %}
 				<li class="nav-item">
-				  <a class="nav-link" data-toggle="collapse" href="#group-pages" aria-expanded="false" aria-controls="group-pages">
+				  <a class="nav-link" data-toggle="collapse" href="#allgroups-pages" aria-expanded="false" aria-controls="allgroups-pages">
 					<span class="menu-title">Group Analytics</span>
 					<i class="menu-arrow"></i>
 					<i class="mdi mdi-chart-bar menu-icon"></i>
 				  </a>
-				  <div class="collapse" id="group-pages">
+				  <div class="collapse" id="allgroups-pages">
 					<ul class="nav flex-column sub-menu">
 					  <li class="nav-item"><a class="nav-link" href="{% url 'finance' %}">Finance Metrics</a></li>				
 					  <li class="nav-item"><a class="nav-link" href="{% url 'manufacturing' %}">Manufacturing Metrics</a></li>					

@@ -1,0 +1,59 @@
+	var r1 = {{ rangeset1|safe }};
+	var r2 = {{ rangeset2|safe }};
+	var r3 = {{ rangeset3|safe }};
+	
+	var sZ1 = [
+	   {strokeStyle: "#F03E3E", min: 0, max: r1[0]}, // Red 
+	   {strokeStyle: "#FFDD00", min: r1[0], max: r1[1]}, // Yellow
+	   {strokeStyle: "#30B32D", min: r1[1], max: r1[2]}, // Green
+	];
+	var sZ2 = [
+	   {strokeStyle: "#F03E3E", min: 0, max: r2[0]}, // Red 
+	   {strokeStyle: "#FFDD00", min: r2[0], max: r2[1]}, // Yellow
+	   {strokeStyle: "#30B32D", min: r2[1], max: r2[2]}, // Green
+	];
+	var sZ3 = [
+	   {strokeStyle: "#F03E3E", min: 0, max: r3[0]}, // Red 
+	   {strokeStyle: "#FFDD00", min: r3[0], max: r3[1]}, // Yellow
+	   {strokeStyle: "#30B32D", min: r3[1], max: r3[2]}, // Green
+	];
+	
+	var sL1 = {
+		font: "10px sans-serif", 
+		labels: r1[3], 
+		color: "#000000", 
+		fractionDigits: 0 
+	};
+	var sL2 = {
+		font: "10px sans-serif", 
+		labels: r2[3], 
+		color: "#000000", 
+		fractionDigits: 0 
+	};
+	var sL3 = {
+		font: "10px sans-serif", 
+		labels: r3[3], 
+		color: "#000000", 
+		fractionDigits: 0 
+	};
+	
+	opts.staticZones = sZ1;
+	opts.staticLabels = sL1;
+	var gauge1 = new Gauge(target1).setOptions(opts);
+	gauge1.maxValue = r1[2];
+	gauge1.animationSpeed = 32;
+	gauge1.set({{ gauge1|safe }});
+
+	opts.staticZones = sZ2;
+	opts.staticLabels = sL2;
+	var gauge2 = new Gauge(target2).setOptions(opts);
+	gauge2.maxValue = r2[2];
+	gauge2.animationSpeed = 32;
+	gauge2.set({{ gauge2|safe }});
+	
+	opts.staticZones = sZ3;
+	opts.staticLabels = sL3;
+	var gauge3 = new Gauge(target3).setOptions(opts);
+	gauge3.maxValue = r3[2];
+	gauge3.animationSpeed = 32;
+	gauge3.set({{ gauge3|safe }});
