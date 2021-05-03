@@ -24,7 +24,7 @@ if os.path.isfile(dotenv_file):
 AZURE_CLIENT_ID = os.environ['AZURE_CLIENT_ID']
 AZURE_CLIENT_SECRET = os.environ['AZURE_CLIENT_SECRET']
 SECRET_KEY = os.environ['APP_SECRET_KEY']
-DEBUG = os.environ['DEBUG']
+DEBUG = False
 DBNAME = os.environ['DBNAME']
 DBCONN = os.environ['DBCONN']
 DBUSER = os.environ['DBUSER']
