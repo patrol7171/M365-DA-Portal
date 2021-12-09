@@ -12,7 +12,6 @@ from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # load dotenv in the base root--use locally only
@@ -80,8 +79,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'm365_daportal.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+#Database
+#https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -90,27 +89,12 @@ WSGI_APPLICATION = 'm365_daportal.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': DBNAME,
-        'ENFORCE_SCHEMA': False,        
-        'CLIENT': {
-            'host': DBCONN,
-            'port': 10255,
-            'username': DBUSER,
-            'password': DBPSWD,
-            'authSource': DBNAME,
-            'ssl': True,
-            'authMechanism': 'SCRAM-SHA-1'
-        },
-        'LOGGING': {
-            'version': 1,
-            'loggers': {
-                'djongo': {
-                    'level': 'DEBUG',
-                    'propagate': False,
-                }
-            },
-         },
+        'USER': DBUSER,
+        'PASSWORD': DBPSWD,
+        'HOST': DBCONN,
+        'PORT': '3306',
     }
 }
 
