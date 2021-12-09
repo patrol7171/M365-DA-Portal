@@ -134,9 +134,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATICFILES_DIRS = (
-   ('m365_daportal', os.path.join(BASE_DIR, 'm365_daportal', 'static')),
-)
+# STATICFILES_DIRS = (
+#    ('m365_daportal', os.path.join(BASE_DIR, 'm365_daportal', 'static')),
+# )
 
 STATICFILES_FINDERS = (
   'django.contrib.staticfiles.finders.FileSystemFinder',
